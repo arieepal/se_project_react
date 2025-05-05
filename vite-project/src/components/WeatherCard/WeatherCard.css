@@ -1,0 +1,16 @@
+.weather-card {
+  width: 100%;
+  max-width: 1360px;
+  /* top: 100px;
+  left: 40px; */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.weather-card__image {
+  width: 100%;
+  max-width: "400px";
+  height: auto;
+  display: block;
+  max-width: none;
+}
