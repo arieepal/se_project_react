@@ -1,16 +1,25 @@
 .weather-card {
   width: 100%;
-  max-width: 1360px;
-  /* top: 100px;
-  left: 40px; */
+  max-width: 100%;
   border-radius: 12px;
   overflow: hidden;
 }
 
+/* .weather-card__image {
+  width: auto;
+  height: auto;
+  max-width: 1360px;
+} */
+
+/* .weather-card__image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+} */
+
 .weather-card__image {
   width: 100%;
-  /* max-width: "400px"; */
+  max-width: 100%;
   height: auto;
   display: block;
-  max-width: none;
 }

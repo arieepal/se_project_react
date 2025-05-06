@@ -8,7 +8,7 @@ function WeatherCard() {
         src={sunny}
         alt="sunny"
         className="weather-card__image"
-        // style={{ width: "100%", maxWidth: "870px", height: "auto" }}
+        // style={{ width: "100%", maxWidth: "1360px", height: "auto" }}
       />
     </section>
   );
