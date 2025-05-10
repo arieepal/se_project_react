@@ -3,23 +3,28 @@
   max-width: 100%;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
+  height: 80px;
+  display: flex;
 }
-
-/* .weather-card__image {
-  width: auto;
-  height: auto;
-  max-width: 1360px;
-} */
-
-/* .weather-card__image {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-} */
 
 .weather-card__image {
   width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
+  object-position: right top;
+}
+
+.weather-card__temp {
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  margin: 0;
+  position: absolute;
+  left: 16px;
+  top: 20px;
+  color: white;
 }

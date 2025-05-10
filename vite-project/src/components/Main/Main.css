@@ -1,0 +1,23 @@
+.cards {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards__text {
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px; /* Adjust line height */
+  margin: 0;
+  margin-bottom: 34px;
+}
+
+.cards__list {
+  display: flex;
+  gap: 19px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
