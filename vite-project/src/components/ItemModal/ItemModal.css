@@ -1,8 +1,8 @@
 .modal__content.modal__content_type_image {
   width: 498px;
   height: 610px;
-  top: 106px;
-
+  /* top: 106px; */
+  overflow: hidden;
   padding: 0;
   position: relative;
   border-radius: 16px;
