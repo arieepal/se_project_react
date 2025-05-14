@@ -11,16 +11,16 @@
   visibility: hidden;
 }
 
-.modal__opened {
+.modal_opened {
   visibility: visible;
   transition: 0.5s;
 }
 
-.modal__close {
+.modal__close_type_form {
   position: absolute;
   top: 20px;
   right: 28px;
-  background-image: url("../../assets/closeModal.png");
+  background-image: url("../../assets/closeModalDark.png");
   background-repeat: no-repeat;
   background-position: center;
   width: 20px;
@@ -30,7 +30,6 @@
   cursor: pointer;
   background-color: transparent;
   padding: 0;
-  background: rgba(0, 0, 0, 0.3);
 }
 
 .modal__content {

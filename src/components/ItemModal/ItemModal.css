@@ -9,7 +9,7 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
-.modal__close {
+.modal__close_type_item {
   top: 24px;
   right: 24px;
   background-color: transparent;
@@ -21,6 +21,7 @@
   background-image: url("../../assets/closeModalWhite.png");
   background-repeat: no-repeat;
   background-position: center;
+  position: absolute;
 }
 
 .modal__image {
