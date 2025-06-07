@@ -1,0 +1,62 @@
+.modal__content.modal__content_type_confirm {
+  max-width: 670px;
+  height: 280px;
+  border-width: 1px;
+  border-radius: 20px;
+}
+
+.modal__close.modal__close_type_confirm {
+  background-image: url("../../assets/closeModalDark.png");
+  border: none;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: -10px;
+  left: 604px;
+}
+
+.modal__title_confirm {
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  width: 367px;
+  height: 48px;
+  top: 60px;
+  left: 151px;
+  text-align: center;
+  position: absolute;
+  margin: 0;
+}
+
+.modal__actions {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 24px;
+  top: 85px;
+}
+
+.modal__button.modal__button_type_confirm {
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 77, 0, 1);
+  cursor: pointer;
+  bottom: 24px;
+}
+
+.modal__button.modal__button_type_confirm:hover {
+  font-weight: bold;
+}
+
+.modal__button.modal__button_type_cancel {
+  border: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  top: 24px;
+}
+
+.modal__button.modal__button_type_cancel:hover {
+  font-weight: bold;
+}
