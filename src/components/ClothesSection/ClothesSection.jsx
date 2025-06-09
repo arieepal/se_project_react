@@ -16,6 +16,7 @@ function ClothesSection({ onCardClick, clothingItems, weatherData }) {
             return item.weather === weatherData.type;
           })
           .map((item) => {
+            console.log(item._id);
             return (
               <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
             );

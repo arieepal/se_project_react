@@ -62,7 +62,7 @@ function App() {
           name,
           imageUrl,
           weather,
-          // id: newId,
+          _id: newItem,
         },
         ...clothingItems,
       ]);
@@ -71,7 +71,7 @@ function App() {
     closeActiveModal();
   };
 
-  const handleDeleteItem = (_id) => {
+  const handleDeleteItem = () => {
     if (!itemToDelete) return;
     deleteItems(itemToDelete._id)
       .then(() => {
