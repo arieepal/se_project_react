@@ -23,7 +23,6 @@ function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItemModalSubmit({ name, imageUrl, weather });
-    // empty the inputs
     setName("");
     setImageUrl("");
     setWeather("");

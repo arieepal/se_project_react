@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-
 import "./App.css";
+
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import { coordinates, APIkey } from "../../utils/constants";
+import { getWeather, filterWeatherData } from "../../utils/weatherApi";
+import { defaultClothingItems } from "../../utils/clothingItems";
+import { getItems, postItems, deleteItems } from "../../utils/api";
+
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ItemModal from "../ItemModal/ItemModal";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
-import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { defaultClothingItems } from "../../utils/clothingItems";
-import { BrowserRouter } from "react-router-dom";
-import { getItems, postItems, deleteItems } from "../../utils/api";
+
+import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -54,29 +57,24 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    // const newId = Math.max(...clothingItems.map((itme) => itme._id)) + 1;
-    postItems({ name, imageUrl, weather }).then((newItem) => {
-      // update clothingItem array
-      setClothingItems([
-        {
-          name,
-          imageUrl,
-          weather,
-          _id: newItem,
-        },
-        ...clothingItems,
-      ]);
-    });
+    postItems({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+      })
 
-    closeActiveModal();
+      .catch((err) => console.error(err));
   };
 
   const handleDeleteItem = () => {
+    console.log("itemToDelete:", itemToDelete);
+    console.log("itemToDelete._id:", itemToDelete._id);
+
     if (!itemToDelete) return;
-    deleteItems(itemToDelete._id)
+    deleteItems(itemToDelete.id)
       .then(() => {
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item._id !== itemToDelete._id)
+          prevItems.filter((item) => item.id !== itemToDelete.id)
         );
         setIsConfirmModalOpen(false);
         setItemToDelete(null);

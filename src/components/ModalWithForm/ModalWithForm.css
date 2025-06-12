@@ -9,11 +9,14 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
 }
 
 .modal_opened {
   visibility: visible;
   transition: 0.5s;
+  opacity: 1;
 }
 
 .modal__close_type_form {

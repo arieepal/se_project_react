@@ -1,5 +1,4 @@
 import "./ClothesSection.css";
-import { defaultClothingItems } from "../../utils/clothingItems";
 import ItemCard from "../ItemCard/ItemCard";
 
 function ClothesSection({ onCardClick, clothingItems, weatherData }) {
@@ -10,17 +9,11 @@ function ClothesSection({ onCardClick, clothingItems, weatherData }) {
         <button className="clothing_new-button">+ Add New</button>
       </div>
       <ul className="clothes-section__list">
-        {clothingItems
-          .filter((item) => {
-            if (!weatherData) return false;
-            return item.weather === weatherData.type;
-          })
-          .map((item) => {
-            console.log(item._id);
-            return (
-              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
-            );
-          })}
+        {clothingItems.map((item) => {
+          return (
+            <ItemCard key={item.id} item={item} onCardClick={onCardClick} />
+          );
+        })}
       </ul>
     </div>
   );

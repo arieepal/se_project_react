@@ -12,6 +12,10 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Project Images
 
-![alt text](<src/assets/read.me-img/Screenshot 2025-05-12 at 9.38.39 PM.png>)
-![alt text](<dist/assets/Screenshot 2025-05-12 at 9.41.20 PM.png>)
-![alt text](<src/assets/read.me-img/Screenshot 2025-05-12 at 9.44.22 PM.png>)
+![Weather app homepage showing current temperature and weather conditions](<src/assets/read.me-img/Screenshot 2025-05-12 at 9.38.39 PM.png>)
+![Clothing recommendations display based on weather forecast](<dist/assets/Screenshot 2025-05-12 at 9.41.20 PM.png>)
+![Mobile responsive view of the What to Wear application](<src/assets/read.me-img/Screenshot 2025-05-12 at 9.44.22 PM.png>)
+
+![Ability to add your own pictures for clothing options](<src/assets/read.me-img/Screenshot 2025-06-12 at 6.21.04 PM.png>)
+
+![Comfirmation on a safe deletion of a card image](<src/assets/read.me-img/Screenshot 2025-06-12 at 6.21.37 PM.png>)
