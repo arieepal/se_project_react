@@ -67,14 +67,11 @@ function App() {
   };
 
   const handleDeleteItem = () => {
-    console.log("itemToDelete:", itemToDelete);
-    console.log("itemToDelete._id:", itemToDelete._id);
-
     if (!itemToDelete) return;
-    deleteItems(itemToDelete.id)
+    deleteItems(itemToDelete._id)
       .then(() => {
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item.id !== itemToDelete.id)
+          prevItems.filter((item) => item._id !== itemToDelete._id)
         );
         setIsConfirmModalOpen(false);
         setItemToDelete(null);
@@ -125,6 +122,7 @@ function App() {
                     weatherData={weatherData}
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    handleAddClick={handleAddClick}
                   />
                 }
               />
@@ -139,7 +137,6 @@ function App() {
             isOpen={activeModal === "preview"}
             item={selectedCard}
             onClose={closeActiveModal}
-            // onDelete={handleDeleteItem}
             openConfirmationModal={openConfirmationModal}
           />
           <DeleteConfirmationModal

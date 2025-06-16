@@ -3,13 +3,11 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
 import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-// import { BrowserRouter } from "react-router-dom";
 
 function Main({ weatherData, onCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
 
   return (
-    // <BrowserRouter>
     <main>
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
@@ -26,13 +24,16 @@ function Main({ weatherData, onCardClick, clothingItems }) {
 
             .map((item) => {
               return (
-                <ItemCard key={item.id} item={item} onCardClick={onCardClick} />
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  onCardClick={onCardClick}
+                />
               );
             })}
         </ul>
       </section>
     </main>
-    // </BrowserRouter>
   );
 }
 
