@@ -14,7 +14,7 @@ export function getItems() {
   }).then(handleRequest);
 }
 
-export function postItems(item) {
+export function addItem(item) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: baseHeaders,
@@ -22,8 +22,7 @@ export function postItems(item) {
   }).then(handleRequest);
 }
 
-export function deleteItems(_id) {
-  console.log("Deleting item with ID:", _id);
+export function deleteItem(_id) {
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
     headers: baseHeaders,

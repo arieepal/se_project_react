@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { coordinates, APIkey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { defaultClothingItems } from "../../utils/clothingItems";
-import { getItems, postItems, deleteItems } from "../../utils/api";
+import { getItems, addItem, deleteItem } from "../../utils/api";
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -17,7 +17,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 
-import currentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -57,18 +57,18 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    postItems({ name, imageUrl, weather })
+    addItem({ name, imageUrl, weather })
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
       })
 
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("Weather fetch error:", err));
   };
 
   const handleDeleteItem = () => {
     if (!itemToDelete) return;
-    deleteItems(itemToDelete._id)
+    deleteItem(itemToDelete._id)
       .then(() => {
         setClothingItems((prevItems) =>
           prevItems.filter((item) => item._id !== itemToDelete._id)
@@ -97,7 +97,7 @@ function App() {
   }, []);
 
   return (
-    <currentTemperatureUnitContext.Provider
+    <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
     >
       <BrowserRouter basename="/se_project_react">
@@ -151,7 +151,7 @@ function App() {
           <Footer></Footer>
         </div>
       </BrowserRouter>
-    </currentTemperatureUnitContext.Provider>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 

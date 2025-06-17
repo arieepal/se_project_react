@@ -80,27 +80,9 @@
     },
     {
       "name": "jacket",
-      "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fjacket&psig=AOvVaw3qQ45ZB4UB-kwnkL2NRz5a&ust=1747180581453000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKDKrIGRn40DFQAAAAAdAAAAABAE",
-      "weather": "cold",
-      "_id": 18
-    },
-    {
-      "name": "jacket",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad",
       "weather": "cold",
       "_id": 19
-    },
-    {
-      "name": "new jacket",
-      "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fjacket&psig=AOvVaw3qQ45ZB4UB-kwnkL2NRz5a&ust=1747180581453000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKDKrIGRn40DFQAAAAAdAAAAABAE",
-      "weather": "cold",
-      "_id": 20
-    },
-    {
-      "name": "jacket",
-      "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.llbean.com%2Fllb%2Fshop%2F128457%3Fpage%3Dwomens-popham-puffer-jacket-womens-plus&psig=AOvVaw1jtB09zyhqmgzFz4vRQr_r&ust=1749269464422000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNiik9r2240DFQAAAAAdAAAAABAE",
-      "weather": "cold",
-      "_id": 23
     },
     {
       "name": "jacket",
@@ -139,40 +121,10 @@
       "_id": 32
     },
     {
-      "name": "jacket",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sneakers.png?etag=3efeec41c1c78b8afe26859ca7fa7b6f",
-      "weather": "hot",
-      "_id": 33
-    },
-    {
-      "name": "skirt",
-      "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQSLGJefKG12KPvK_tYYnvXJOTQzin_4UalF4MSfArR8wWTOGxHSYBz41oL2SjvvLfvrPJw1fWhs5hbliC90LIynSrUL8Sk_idD40XMIy558b4QW6PULaGY6",
-      "weather": "hot",
-      "_id": 34
-    },
-    {
-      "name": "jacket",
-      "imageUrl": "https://dqaecz4y0qq82.cloudfront.net/products/s8250.jpg?format=webp&preset=zoom&404=y",
-      "weather": "hot",
-      "_id": 35
-    },
-    {
-      "name": "skirt",
-      "imageUrl": "https://dqaecz4y0qq82.cloudfront.net/products/s8250.jpg?format=webp&preset=zoom&404=y",
-      "weather": "warm",
-      "_id": 37
-    },
-    {
       "name": "glasses",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu9w1bgEBNXweCtyqH6uaUoMCWfe8rZg-GCg&s",
       "weather": "warm",
       "_id": 38
-    },
-    {
-      "name": "jacket",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sneakers.png?etag=3efeec41c1c78b8afe26859ca7fa7b6f",
-      "weather": "warm",
-      "_id": 39
     }
   ]
 }
