@@ -12,7 +12,7 @@ function Main({
   currentUser,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(clothingItems);
+  console.log(clothingItems[0]);
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
