@@ -1,24 +1,18 @@
 .footer {
   display: flex;
-  font-family: Cabinet Grotesk, sans-serif;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 24px 40px;
+  font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  letter-spacing: 0%;
-  text-align: right;
-  vertical-align: bottom;
-  position: relative;
 }
 
 .footer__author {
   margin: 0;
-  padding: 171px 0px 24px 40px;
 }
 
 .footer__date {
-  position: absolute;
-  bottom: 24px;
-  right: 42px;
   margin: 0;
-  top: 171px;
 }

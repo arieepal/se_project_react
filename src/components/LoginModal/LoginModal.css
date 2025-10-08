@@ -1,0 +1,11 @@
+.signup-or__btn {
+  border: 0;
+  background: #00000080;
+  background-color: transparent;
+  padding: 0;
+  bottom: 40px;
+  right: 252px;
+  font-size: 16px;
+  position: absolute;
+  cursor: pointer;
+}

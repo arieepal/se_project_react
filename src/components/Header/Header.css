@@ -1,5 +1,6 @@
 .header__container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   padding: 32px 0 28px;
@@ -19,6 +20,7 @@
 .header__avatar {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
 }
 
 .header__add-clothes-btn {
@@ -49,4 +51,50 @@
 
 .header__date-and-location {
   margin: 0;
+}
+
+.header__auth-btns {
+  width: 67;
+  height: 24;
+  opacity: 1;
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.header__login {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.header__signup {
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.header__avatar_none {
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 1);
+}
+
+.header__username {
+  margin: 0;
+}
+
+.header__user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
