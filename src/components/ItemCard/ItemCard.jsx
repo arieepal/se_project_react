@@ -2,6 +2,7 @@ import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
   console.log(item);
+  // const isLoggedIn = !!currentUser;
 
   const isLiked =
     currentUser && Array.isArray(item.likes)
@@ -31,7 +32,6 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
         className="card-image"
         src={item.imageUrl || item.link}
         alt={item.name}
-        isLoggedIn={isLoggedIn}
       />
     </li>
   );
