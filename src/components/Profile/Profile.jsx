@@ -10,6 +10,7 @@ function Profile({
   handleEditProfileClick,
   currentUser,
   onLogout,
+  isLoggedIn,
 }) {
   return (
     <div className="profile">
@@ -27,6 +28,7 @@ function Profile({
           weatherData={weatherData}
           handleAddClick={handleAddClick}
           currentUser={currentUser}
+          isLoggedIn={isLoggedIn}
         />
       </section>
     </div>

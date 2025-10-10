@@ -260,6 +260,7 @@ function App() {
                       handleLogout={handleLogout}
                       handleEditProfileClick={handleEditProfileClick}
                       onLogout={handleLogout}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }
