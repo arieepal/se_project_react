@@ -13,7 +13,6 @@ function Main({
   isLoggedIn,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(clothingItems[0]);
   return (
     <main>
       <WeatherCard weatherData={weatherData} />

@@ -191,7 +191,6 @@ function App() {
     api
       .getItems()
       .then((data) => {
-        console.log("Fetched clothing items:", data);
         setClothingItems(data);
       })
       .catch(console.error);

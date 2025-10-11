@@ -1,7 +1,6 @@
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
-  console.log(item);
   // const isLoggedIn = !!currentUser;
 
   const isLiked =
@@ -20,7 +19,6 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
     if (isLiked === null) return;
     onCardLike({ id: item._id, isLiked });
   };
-  console.log("Image URL:", item.imageUrl, "Fallback Link:", item.link);
   return (
     <li className="card">
       <h2 className="card-name">{item.name}</h2>
