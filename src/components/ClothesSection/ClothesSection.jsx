@@ -7,6 +7,7 @@ function ClothesSection({
   handleAddClick,
   onCardLike,
   currentUser,
+  isLoggedIn,
 }) {
   return (
     <div className="clothes-section">
@@ -18,6 +19,7 @@ function ClothesSection({
       </div>
       <ul className="clothes-section__list">
         {clothingItems.map((item) => {
+          console.log("Rendering item:", item._id, item);
           return (
             <ItemCard
               key={item._id}
@@ -25,6 +27,7 @@ function ClothesSection({
               onCardClick={onCardClick}
               onCardLike={onCardLike}
               currentUser={currentUser}
+              isLoggedIn={isLoggedIn}
             />
           );
         })}

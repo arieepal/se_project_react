@@ -50,22 +50,45 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("jwt") || "");
   const navigate = useNavigate();
 
+  // const handleRegister = ({ email, password, name, avatar }) => {
+  //   auth
+  //     .register({ email, password, name, avatar })
+  //     .then(() => {
+  //       return auth.login({ email, password });
+  //     })
+  //     .then((res) => {
+  //       localStorage.setItem("jwt", res.token);
+  //       setToken(res.token);
+  //       setCurrentUser(res.user);
+  //       setIsLoggedIn(true);
+  //       closeActiveModal();
+  //       navigate("/profile");
+  //     })
+  //     .catch(console.error);
+  // };
+
   const handleRegister = ({ email, password, name, avatar }) => {
     auth
       .register({ email, password, name, avatar })
-      .then(() => {
-        return auth.login({ email, password });
-      })
       .then((res) => {
-        localStorage.setItem("jwt", res.token);
-        setToken(res.token);
-        setCurrentUser(res.user);
-        setIsLoggedIn(true);
-        closeActiveModal();
-        navigate("/profile");
+        handleLogin({ email: res.email, password });
       })
       .catch(console.error);
   };
+
+  // const handleLogin = ({ email, password }) => {
+  //   auth
+  //     .login({ email, password })
+  //     .then((res) => {
+  //       localStorage.setItem("jwt", res.token);
+  //       setToken(res.token);
+  //       setCurrentUser(res.user);
+  //       setIsLoggedIn(true);
+  //       closeActiveModal();
+  //       navigate("/profile");
+  //     })
+  //     .catch(console.error);
+  // };
 
   const handleLogin = ({ email, password }) => {
     auth
@@ -73,12 +96,37 @@ function App() {
       .then((res) => {
         localStorage.setItem("jwt", res.token);
         setToken(res.token);
-        setCurrentUser(res.user);
+        return auth.checkToken(res.token);
+      })
+      .then((res) => {
+        setCurrentUser(res);
         setIsLoggedIn(true);
         closeActiveModal();
         navigate("/profile");
       })
       .catch(console.error);
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+
+    !isLiked
+      ? api
+          .addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : api
+          .removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err));
   };
 
   const handleEditProfile = ({ name, avatar }) => {
@@ -136,32 +184,11 @@ function App() {
     const token = localStorage.getItem("jwt");
     addItem({ name, imageUrl, weather }, token)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
       })
 
       .catch((err) => console.error("Weather fetch error:", err));
-  };
-
-  const handleCardLike = ({ id, isLiked }) => {
-    const token = localStorage.getItem("jwt");
-    !isLiked
-      ? api
-          .addCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
-            );
-          })
-          .catch((err) => console.log(err))
-      : api
-          .removeCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
-            );
-          })
-          .catch((err) => console.log(err));
   };
 
   const handleDeleteItem = () => {
@@ -260,6 +287,7 @@ function App() {
                       handleEditProfileClick={handleEditProfileClick}
                       onLogout={handleLogout}
                       isLoggedIn={isLoggedIn}
+                      onCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
                 }

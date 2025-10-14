@@ -1,12 +1,10 @@
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
-  // const isLoggedIn = !!currentUser;
-
-  const isLiked =
-    currentUser && Array.isArray(item.likes)
-      ? item.likes.some((id) => id === currentUser._id)
-      : null;
+  const isLiked = ["/."];
+  currentUser && Array.isArray(item.likes)
+    ? item.likes.some((id) => id === currentUser._id)
+    : null;
 
   const itemLikeButton = `card__like-button ${
     isLiked ? "card__like-button_liked" : ""
