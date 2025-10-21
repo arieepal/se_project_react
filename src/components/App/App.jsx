@@ -50,23 +50,6 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("jwt") || "");
   const navigate = useNavigate();
 
-  // const handleRegister = ({ email, password, name, avatar }) => {
-  //   auth
-  //     .register({ email, password, name, avatar })
-  //     .then(() => {
-  //       return auth.login({ email, password });
-  //     })
-  //     .then((res) => {
-  //       localStorage.setItem("jwt", res.token);
-  //       setToken(res.token);
-  //       setCurrentUser(res.user);
-  //       setIsLoggedIn(true);
-  //       closeActiveModal();
-  //       navigate("/profile");
-  //     })
-  //     .catch(console.error);
-  // };
-
   const handleRegister = ({ email, password, name, avatar }) => {
     auth
       .register({ email, password, name, avatar })
@@ -75,20 +58,6 @@ function App() {
       })
       .catch(console.error);
   };
-
-  // const handleLogin = ({ email, password }) => {
-  //   auth
-  //     .login({ email, password })
-  //     .then((res) => {
-  //       localStorage.setItem("jwt", res.token);
-  //       setToken(res.token);
-  //       setCurrentUser(res.user);
-  //       setIsLoggedIn(true);
-  //       closeActiveModal();
-  //       navigate("/profile");
-  //     })
-  //     .catch(console.error);
-  // };
 
   const handleLogin = ({ email, password }) => {
     auth
@@ -107,26 +76,50 @@ function App() {
       .catch(console.error);
   };
 
+  // const handleCardLike = ({ id, isLiked }) => {
+  //   const token = localStorage.getItem("jwt");
+
+  //   console.log("handleCardLike called with:", { id, isLiked });
+
+  //   !isLiked
+  //     ? api
+  //         .addCardLike(id, token)
+  //         .then((updatedCard) => {
+  //           setClothingItems((cards) =>
+  //             cards.map((item) => (item._id === id ? updatedCard.data : item))
+  //           );
+  //         })
+  //         .catch((err) => console.log(err))
+  //     : api
+  //         .removeCardLike(id, token)
+  //         .then((updatedCard) => {
+  //           console.log("Response from server:", updatedCard);
+  //           setClothingItems((cards) =>
+  //             cards.map((item) => (item._id === id ? updatedCard.data : item))
+  //           );
+  //         })
+  //         .catch((err) => console.log(err));
+  // };
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
+    console.log("handleCardLike called with:", { id, isLiked });
+    console.log("Token exists:", !!token); // Check if token exists
+    console.log(
+      "Request function selected:",
+      isLiked ? "removeCardLike" : "addCardLike"
+    );
 
-    !isLiked
-      ? api
-          .addCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
-            );
-          })
-          .catch((err) => console.log(err))
-      : api
-          .removeCardLike(id, token)
-          .then((updatedCard) => {
-            setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
-            );
-          })
-          .catch((err) => console.log(err));
+    const request = isLiked ? api.removeCardLike : api.addCardLike;
+
+    request(id, token)
+      .then((updatedCard) => {
+        console.log("Response from server:", updatedCard);
+
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? updatedCard.data : item))
+        );
+      })
+      .catch((err) => console.log("Like error:", err));
   };
 
   const handleEditProfile = ({ name, avatar }) => {
@@ -270,6 +263,7 @@ function App() {
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
                   />
                 }
               />

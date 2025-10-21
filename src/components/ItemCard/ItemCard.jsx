@@ -1,10 +1,10 @@
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
-  const isLiked = ["/."];
-  currentUser && Array.isArray(item.likes)
-    ? item.likes.some((id) => id === currentUser._id)
-    : null;
+  const isLiked =
+    currentUser && Array.isArray(item.likes)
+      ? item.likes.some((id) => id === currentUser._id)
+      : null;
 
   const itemLikeButton = `card__like-button ${
     isLiked ? "card__like-button_liked" : ""
@@ -14,7 +14,14 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
     onCardClick(item);
   };
   const handleLike = () => {
-    if (isLiked === null) return;
+    console.log("Like button clicked for item:", item);
+    console.log("isLiked value:", isLiked);
+    console.log("currentUser:", currentUser);
+    console.log("item.likes:", item.likes);
+    if (isLiked === null) {
+      console.log("Stopping because isLiked is null");
+      return;
+    }
     onCardLike({ id: item._id, isLiked });
   };
   return (

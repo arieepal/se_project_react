@@ -19,7 +19,7 @@ function ClothesSection({
       </div>
       <ul className="clothes-section__list">
         {clothingItems.map((item) => {
-          console.log("Rendering item:", item._id, item);
+          // console.log("Rendering item:", item._id, item);
           return (
             <ItemCard
               key={item._id}
