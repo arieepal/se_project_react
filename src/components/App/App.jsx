@@ -76,44 +76,12 @@ function App() {
       .catch(console.error);
   };
 
-  // const handleCardLike = ({ id, isLiked }) => {
-  //   const token = localStorage.getItem("jwt");
-
-  //   console.log("handleCardLike called with:", { id, isLiked });
-
-  //   !isLiked
-  //     ? api
-  //         .addCardLike(id, token)
-  //         .then((updatedCard) => {
-  //           setClothingItems((cards) =>
-  //             cards.map((item) => (item._id === id ? updatedCard.data : item))
-  //           );
-  //         })
-  //         .catch((err) => console.log(err))
-  //     : api
-  //         .removeCardLike(id, token)
-  //         .then((updatedCard) => {
-  //           console.log("Response from server:", updatedCard);
-  //           setClothingItems((cards) =>
-  //             cards.map((item) => (item._id === id ? updatedCard.data : item))
-  //           );
-  //         })
-  //         .catch((err) => console.log(err));
-  // };
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-    console.log("handleCardLike called with:", { id, isLiked });
-    console.log("Token exists:", !!token); // Check if token exists
-    console.log(
-      "Request function selected:",
-      isLiked ? "removeCardLike" : "addCardLike"
-    );
-
     const request = isLiked ? api.removeCardLike : api.addCardLike;
 
     request(id, token)
       .then((updatedCard) => {
-        console.log("Response from server:", updatedCard);
 
         setClothingItems((cards) =>
           cards.map((item) => (item._id === id ? updatedCard.data : item))

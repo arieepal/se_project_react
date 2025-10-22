@@ -14,12 +14,7 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
     onCardClick(item);
   };
   const handleLike = () => {
-    console.log("Like button clicked for item:", item);
-    console.log("isLiked value:", isLiked);
-    console.log("currentUser:", currentUser);
-    console.log("item.likes:", item.likes);
     if (isLiked === null) {
-      console.log("Stopping because isLiked is null");
       return;
     }
     onCardLike({ id: item._id, isLiked });
