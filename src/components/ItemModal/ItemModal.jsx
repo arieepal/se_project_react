@@ -11,7 +11,7 @@ function ItemModal({ isOpen, onClose, item, openConfirmationModal }) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = item?.owner === currentUser?._id;
   const itemDeleteButtonClassName = `modal__delete-button ${
-    isOwn ? "" : "modal__delete-button_hidden"
+    !isOwn ? "modal__delete-button_hidden" : ""
   }`;
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>

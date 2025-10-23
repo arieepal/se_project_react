@@ -28,7 +28,7 @@ function Profile({
           clothingItems={clothingItems}
           weatherData={weatherData}
           handleAddClick={handleAddClick}
-          currentUser={currentUser}
+          // currentUser={currentUser}
           isLoggedIn={isLoggedIn}
           onCardLike={onCardLike}
         />

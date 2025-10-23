@@ -82,7 +82,6 @@ function App() {
 
     request(id, token)
       .then((updatedCard) => {
-
         setClothingItems((cards) =>
           cards.map((item) => (item._id === id ? updatedCard.data : item))
         );
@@ -206,6 +205,17 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
@@ -231,7 +241,6 @@ function App() {
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
-                    currentUser={currentUser}
                   />
                 }
               />
@@ -244,7 +253,6 @@ function App() {
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
-                      currentUser={currentUser}
                       handleLogout={handleLogout}
                       handleEditProfileClick={handleEditProfileClick}
                       onLogout={handleLogout}

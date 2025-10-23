@@ -1,6 +1,9 @@
 import "./ItemCard.css";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
+function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
+  const currentUser = useContext(CurrentUserContext);
   const isLiked =
     currentUser && Array.isArray(item.likes)
       ? item.likes.some((id) => id === currentUser._id)
