@@ -1,11 +1,5 @@
+import { handleRequest } from "./api";
 const baseUrl = "http://localhost:3001";
-
-function handleResponse(res) {
-  if (!res.ok) {
-    return Promise.reject(`Error: ${res.status}`);
-  }
-  return res.json();
-}
 
 export const register = ({ email, password, name, avatar }) => {
   return fetch(`${baseUrl}/signup`, {
@@ -14,7 +8,7 @@ export const register = ({ email, password, name, avatar }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(handleResponse);
+  }).then(handleRequest);
 };
 
 export const login = ({ email, password }) => {
@@ -24,7 +18,7 @@ export const login = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(handleResponse);
+  }).then(handleRequest);
 };
 
 export const checkToken = (token) => {
@@ -34,9 +28,7 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((res) =>
-    res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-  );
+  }).then(handleRequest);
 };
 
 export const updateUser = ({ name, avatar }, token) => {
@@ -47,7 +39,5 @@ export const updateUser = ({ name, avatar }, token) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then((res) =>
-    res.ok ? res.json() : Promise.reject(`Error:${res.status}`)
-  );
+  }).then(handleRequest);
 };
