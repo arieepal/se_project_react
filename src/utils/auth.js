@@ -1,5 +1,8 @@
 import { handleRequest } from "./api";
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwrarieepal.heatmypool.com"
+    : "http://localhost:3001";
 
 export const register = ({ email, password, name, avatar }) => {
   return fetch(`${baseUrl}/signup`, {

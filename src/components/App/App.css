@@ -2,10 +2,17 @@
   background-color: rgba(243, 243, 243, 1);
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .page__content {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 40px;
+  flex: 1;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

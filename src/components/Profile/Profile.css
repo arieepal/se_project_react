@@ -1,6 +1,8 @@
 .profile {
   display: flex;
+  flex-direction: column;
   gap: 116px;
+  min-height: 100vh;
 }
 
 .profile__sidebar {
