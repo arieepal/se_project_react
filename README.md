@@ -6,7 +6,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Links
 
-[What to Wear App](https://YOUR_USERNAME.github.io/se_project_react)
+[What to Wear App](https://arieepal.github.io/se_project_react/)
 
 [Figma Design](https://www.figma.com/design/DTojSwldenF9UPKQZd6RRb/Sprint-10--WTWR?node-id=311-433&p=f&t=NISsJ9Jkf02YOHLq-0)
 
